@@ -179,7 +179,7 @@
         let source_node = graph.nodes.filter(function (n) { return n.id == d.source; })[0]
         let target_node = graph.nodes.filter(function (n) { return n.id == d.target; })[0]
 
-        if ((source_node.L1 !== target_node.L1) || (source_node.L2 === 1 && target_node.L2 === (nLayers-1))) {
+        if ((source_node.L1 !== target_node.L1) || (source_node.L2 === 0 && target_node.L2 === (nLayers-1))) {
 
           // console.log(source_node.L2)
           // console.log(target_node.L2)
