@@ -23,16 +23,21 @@
     h2 {
       color: white;
       font-family: "Helvetica Neue", Helvetica, sans-serif;
-      margin-top: 5px;
-      margin-bottom: 30px;
       font-weight: lighter;
+    }
+    
+    text {
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      font-weight: lighter;
+      color: white;
+      font-size: 24px;
     }
 
     div {
       font-family: "Helvetica Neue", Helvetica, sans-serif;
       font-weight: lighter;
       color: white;
-      font-size: 14px;
+      /* font-size: 14px; */
       padding: 10px;
     }
   
@@ -64,6 +69,7 @@
       width: 60%;
       font-family: "Helvetica Neue", Helvetica, sans-serif;
       font-weight: lighter;
+      text-align: center;
   
     }
   
@@ -80,6 +86,11 @@
       align-items: center;
       text-align: center;
   
+    }
+
+    #svgdiv-sadj h2 {
+      margin-top: 5px;
+      margin-bottom: 30px;
     }
   
     #row2-div {
@@ -148,12 +159,6 @@
       opacity: 0.8;
     }
   
-    text {
-      font-family: "Helvetica Neue", Helvetica, sans-serif;
-      font-weight: lighter;
-      color: white;
-      font-size: 21px;
-    }
   
     #footer {
     position: fixed;
