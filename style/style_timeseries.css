@@ -1,12 +1,12 @@
-#header {
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    width: 95%;
-    height: 40px;
-    padding: 10px;
-    overflow: auto;
-    background: rgba(255,255,255,0.06);
+    #header {
+      margin: auto;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      width: 95%;
+      height: 40px;
+      padding: 10px;
+      overflow: auto;
+      background: rgba(255,255,255,0.06);
   
     }
   
@@ -26,6 +26,14 @@
       margin-top: 5px;
       margin-bottom: 30px;
       font-weight: lighter;
+    }
+
+    div {
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      font-weight: lighter;
+      color: white;
+      font-size: 14px;
+      padding: 10px;
     }
   
     #svgdiv-mx {
@@ -81,6 +89,29 @@
       grid-column-gap: 10px;
       width: 95%;
       height: 600px;
+    }
+
+    #info-div {
+      width: 100%;
+      /* float: left; */
+      text-align: center;
+      margin: 0 auto;
+    }
+  
+    #info-div-text {
+        font-size: 30px;
+        margin: 0 auto;
+        width: 80%;
+        text-align: center;
+        color: inherit;
+    }
+    
+    
+    #list-div {
+        font-size: 24px;
+        width: 50%;
+        display: table;
+        margin: 0 auto;
     }
   
     .inter-layer {
