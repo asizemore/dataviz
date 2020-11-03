@@ -75,7 +75,13 @@ ul {
     /* float: left; */
     text-align: center;
     margin: 0 auto;
+}
+
+#info-div-text {
     font-size: 30px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
 }
 
 
