@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <link rel="stylesheet" href="../style/style_waterfall_viz.css">
+</head>
+
+<body style="background-color:rgb(8, 8, 16)">
+    <div id="title-div">
+        <h1> Waterfall SC </h1>
+    </div>
+
+    <div id="svg-div">
+        <svg width="1300" height="600" id="sc-svg"></svg>
+    </div>
+
+
+    <div id="slider-div">
+        <h3>Simplex weight</h3>
+        <input id="slider-range" type="range" min="0" max="1500" step="1" value="3000">
+    </div>
+    <!-- <div id="slider-fv"><h3>fv</h3></div> -->
+    <!-- <div id="slider-container"><h3>fv</h3>
+        <div class="col-sm-2"><p id="value-alternative-handle"></p></div>
+        <div class="col-sm"><div id="slider-fv"></div></div>
+    </div> -->
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+    <!-- <script src="d3-save-svg-gh-pages/assets/d3-save-svg.min.js"></script> -->
+
+
+    <script src="../js/waterfall_viz.js"> </script>
+
+
+</body>
