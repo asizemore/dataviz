@@ -1,28 +1,9 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<style>
-    /* CSS */
-    h1 {
-        font-family: "Helvetica Neue", Helvetica, sans-serif;
-        font-weight: lighter;
-        color: white;
-        font-size: 45px;
-    }
-
-
-    .simp2 {
-        opacity: 0.1;
-    }
-
-    .simp1 {
-        opacity: 0.9;
-    }
-
-    .nodes {
-        opacity: 1;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="../style/style_simpcomp_viz.css">
+</head>
 
 <body style="background-color:rgb(8, 8, 16)">
     <div id="title-div">
@@ -30,7 +11,27 @@
     </div>
 
     <div id="svg-div">
-        <svg width="1000" height="700" id="sc-svg"></svg>
+        <svg width="800" height="700" id="sc-svg"></svg>
+    </div>
+
+
+    <div id="info-div">
+        <div id="info-div-text">
+          <br>
+            Simplicial complexes can represent systems in which nodes can interact, connect, or relate to each other in groups of 2, 3, 4, or more. 
+            Here the simplicial complex shows connections between pairs of nodes and sets of three nodes. Sets of three nodes that all interact are spanned by a filled triangle.<br> <br>
+    
+                <div id="list-div">
+    
+                    <ul>
+                        <li><i>Hover</i> over nodes to change their color.<br><br></li>
+                        <li><i>Drag</i> nodes to a new location.<br><br></li>
+                    </ul>
+    
+                </div>
+    
+        </div>
+    
     </div>
 
     <script src="https://d3js.org/d3.v4.min.js"></script>

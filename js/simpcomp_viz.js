@@ -6,6 +6,15 @@ svg = d3.select("svg")
 var width = +svg.attr("width"),
     height = +svg.attr("height");
 
+// Draw bounding box
+svg.append("rect")
+    .attr("x", 2)
+    .attr("y", 2)
+    .attr("width", width-2)
+    .attr("height", height-2)
+    .attr("stroke", "white")
+    .attr("fill", "none")
+
 
 
 
@@ -120,18 +129,18 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
         let new_x_pos, new_y_pos;
 
         // Keep the nodes within the svg box
-        if (d3.event.x > 700) {
-            new_x_pos = 700;  
-        } else if (d3.event.x < 20) {
-            new_x_pos = 20;
+        if (d3.event.x > (width-50)) {
+            new_x_pos = width-50;  
+        } else if (d3.event.x < 50) {
+            new_x_pos = 50;
         } else {
             new_x_pos = d3.event.x;
         }
 
-        if (d3.event.y > 600) {
-            new_y_pos = 600;  
-        } else if (d3.event.y < 20) {
-            new_y_pos = 20;
+        if (d3.event.y > (height-50)) {
+            new_y_pos = height-50;  
+        } else if (d3.event.y < 50) {
+            new_y_pos = 50;
         } else {
             new_y_pos = d3.event.y;
         }

@@ -1,0 +1,57 @@
+h1 {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: lighter;
+    color: white;
+    font-size: 45px;
+}
+
+ul {
+    text-align: left;
+}
+
+
+.simp2 {
+    opacity: 0.1;
+}
+
+.simp1 {
+    opacity: 0.9;
+}
+
+.nodes {
+    opacity: 1;
+}
+
+div {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    font-weight: lighter;
+    color: gray;
+    font-size: 14px;
+    padding: 10px;
+}
+
+
+
+
+#info-div {
+    width: 100%;
+    /* float: left; */
+    text-align: center;
+    margin: 0 auto;
+}
+
+#info-div-text {
+    font-size: 30px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+
+#list-div {
+    font-size: 24px;
+    width: 30%;
+    display: table;
+    margin: 0 auto;
+}
