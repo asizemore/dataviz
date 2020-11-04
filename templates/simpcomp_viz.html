@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <link rel="stylesheet" href="../style/style_simpcomp_viz.css">
+</head>
+
+<body style="background-color:rgb(8, 8, 16)">
+    <div id="title-div">
+        <h1>Simplicial complex</h1>
+    </div>
+
+    <div id="svg-div">
+        <svg width="800" height="700" id="sc-svg"></svg>
+    </div>
+
+
+    <div id="info-div">
+        <div id="info-div-text">
+          <br>
+            Simplicial complexes can represent systems in which nodes can interact, connect, or relate to each other in groups of 2, 3, 4, or more. 
+            Here the simplicial complex shows connections between pairs of nodes and sets of three nodes. Sets of three nodes that all interact are spanned by a filled triangle.<br> <br>
+    
+                <div id="list-div">
+    
+                    <ul>
+                        <li><i>Hover</i> over nodes to change their color.<br><br></li>
+                        <li><i>Drag</i> nodes to a new location.<br><br></li>
+                    </ul>
+    
+                </div>
+    
+        </div>
+    
+    </div>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <!-- <script src="d3-save-svg-gh-pages/assets/d3-save-svg.min.js"></script> -->
+
+
+    <script src="../js/simpcomp_viz.js"></script>
+
+
+</body>
