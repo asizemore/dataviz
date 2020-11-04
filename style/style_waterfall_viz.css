@@ -1,0 +1,70 @@
+h1 {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: lighter;
+    color: white;
+    font-size: 45px;
+}
+
+h3 {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: lighter;
+    color: white;
+    font-size: 20px;
+}
+
+ul {
+    text-align: left;
+}
+
+div {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: lighter;
+    color: gray;
+    font-size: 14px;
+    padding: 10px;
+}
+
+
+.links {
+    /* opacity: 0.1; */
+    stroke: pink;
+    stroke-width: 1px;
+}
+
+.circles {
+    fill: rgb(8, 8, 16);
+    stroke: rgb(224, 224, 230);
+    stroke-width: 0.7px;
+    /* opacity: 0.4; */
+}
+
+#slider-fv {
+    width: 500px;
+    float: left;
+    text-align: center;
+    text-anchor: middle;
+}
+
+#info-div {
+    width: 100%;
+    /* float: left; */
+    text-align: center;
+    margin: 0 auto;
+}
+
+#info-div-text {
+    font-size: 30px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+
+#list-div {
+    font-size: 24px;
+    width: 50%;
+    display: table;
+    margin: 0 auto;
+}
+
+
