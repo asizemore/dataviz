@@ -12,6 +12,18 @@ h3 {
     font-size: 20px;
 }
 
+ul {
+    text-align: left;
+}
+
+div {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: lighter;
+    color: gray;
+    font-size: 14px;
+    padding: 10px;
+}
+
 
 .links {
     /* opacity: 0.1; */
@@ -31,6 +43,28 @@ h3 {
     float: left;
     text-align: center;
     text-anchor: middle;
+}
+
+#info-div {
+    width: 100%;
+    /* float: left; */
+    text-align: center;
+    margin: 0 auto;
+}
+
+#info-div-text {
+    font-size: 30px;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+
+#list-div {
+    font-size: 24px;
+    width: 50%;
+    display: table;
+    margin: 0 auto;
 }
 
 

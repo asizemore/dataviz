@@ -107,7 +107,6 @@ d3.json("../data/waterfall_30nodes.json", function(error, dict) {
         
         fv_current = this.value;
 
-        console.log(this.value)
         
         // Change opacity of links
         d3.selectAll(".links")

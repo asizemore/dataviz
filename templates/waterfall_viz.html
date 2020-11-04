@@ -19,18 +19,37 @@
         <h3>Simplex weight</h3>
         <input id="slider-range" type="range" min="0" max="1500" step="1" value="3000">
     </div>
-    <!-- <div id="slider-fv"><h3>fv</h3></div> -->
-    <!-- <div id="slider-container"><h3>fv</h3>
-        <div class="col-sm-2"><p id="value-alternative-handle"></p></div>
-        <div class="col-sm"><div id="slider-fv"></div></div>
-    </div> -->
 
+
+    <div id="info-div">
+        <div id="info-div-text">
+          <br>
+            In the same way triangles have three edges and three nodes, an <i>n</i>-simplex contains multiple <i>(n-1)</i>-simplics, <i>(n-2)</i>-simplices, ..., edges, and nodes.
+            The simplices that are part of a larger simplex are called <i>faces</i>. 
+            This plot shows every simplex in a simplicial complex as a white dot, grouped by simplex size (nodes at the bottom, 5-simplices at the top), and then links together with pink curves those simplices that are faces of larger simplices. <br> <br>
+    
+                <div id="list-div">
+    
+                    <ul>
+                        <li><i>Slide</i> the input to adjust which simplices are visualized. The visualization will update to draw only those simplices with an associated weight less than the slider value.<br><br></li>
+
+                    </ul>
+    
+                </div>
+    
+        </div>
+    
+    </div>
+
+
+
+    
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://unpkg.com/d3-simple-slider"></script>
-    <!-- <script src="d3-save-svg-gh-pages/assets/d3-save-svg.min.js"></script> -->
+
 
 
     <script src="../js/waterfall_viz.js"> </script>
