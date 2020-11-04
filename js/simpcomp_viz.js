@@ -20,7 +20,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
     function triangle_path(vertices) {
         
 
-        console.log(vertices)
+        // console.log(vertices)
 
         // This is hacky right now. Should make a set of vertices and take the unique ones
 
@@ -28,7 +28,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
         v2 = dict.simp0.filter(function(n) {return n.id == vertices[1]})[0]
         v3 = dict.simp0.filter(function(n) {return n.id == vertices[2]})[0]
 
-        console.log(v1,v2,v3)
+        // console.log(v1,v2,v3)
         
         return `M ${v1.x},${v1.y} L ${v2.x},${v2.y} L ${v3.x}, ${v3.y} L ${v1.x} ${v1.y}`
     }
@@ -86,7 +86,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
 
         var selected_node = d3.select(this);
         var selected_node_data = Object.entries(selected_node.data()[0])
-        console.log(selected_node_data)
+        // console.log(selected_node_data)
 
 
         selected_node.select("circle").transition()
@@ -116,7 +116,29 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
     }
 
     function dragged(d) {
-        d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y)
+
+        let new_x_pos, new_y_pos;
+
+        // Keep the nodes within the svg box
+        if (d3.event.x > 700) {
+            new_x_pos = 700;  
+        } else if (d3.event.x < 20) {
+            new_x_pos = 20;
+        } else {
+            new_x_pos = d3.event.x;
+        }
+
+        if (d3.event.y > 600) {
+            new_y_pos = 600;  
+        } else if (d3.event.y < 20) {
+            new_y_pos = 20;
+        } else {
+            new_y_pos = d3.event.y;
+        }
+
+
+        d3.select(this).attr("cx", d.x = new_x_pos).attr("cy", d.y = new_y_pos)
+
         console.log("dragged");
 
         d3.selectAll(".simp1")
