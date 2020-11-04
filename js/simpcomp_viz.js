@@ -90,8 +90,8 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
 
 
         selected_node.select("circle").transition()
-        .duration(500)
-        .attr("fill", "navy")
+        .duration(200)
+        .attr("fill", "rgb(8, 8, 16)")
         .attr("stroke", "white");
         
     }
@@ -100,7 +100,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
     function mouseout() {
         console.log("mouseout")
         d3.select(this).select("circle").transition()
-        .duration(100)
+        .duration(200)
         .attr("fill", "white")
         .attr("stroke", "black");
 
@@ -111,7 +111,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
 
 
     function dragstarted(d) {
-        d3.select(this).raise().attr("stroke", "black")
+        // d3.select(this).raise().attr("stroke", "black")
         console.log("dragstarted");
     }
 
@@ -153,7 +153,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
     }
 
     function dragended(d) {
-        d3.select(this).attr("stroke", null)
+        // d3.select(this).attr("stroke", null)
         console.log("drag ended");
     }
 
