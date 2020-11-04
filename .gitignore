@@ -12,7 +12,6 @@
 .Rhistory
 .sif
 .bash_history
-*.csv
 .DS_Store
 
 
