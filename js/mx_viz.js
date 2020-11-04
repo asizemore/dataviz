@@ -60,7 +60,7 @@
     
       boxspan_x = [Math.min(...xs), Math.max(...xs)]
       boxspan_y = [Math.min(...ys), Math.max(...ys)]
-      console.log(boxspan_x,boxspan_y)
+
     
     
     
@@ -142,21 +142,13 @@
       var nodes_extent = d3.extent(graph.nodes, function(d) {return project_x(d.x, d.y, d.z, d_project, x_0, tilt); });
       var extent_buffer = 0.01 
       x_scale.domain([nodes_extent[0] - extent_buffer, nodes_extent[1] + extent_buffer]);
-      console.log([nodes_extent[0] - extent_buffer, nodes_extent[1]])
-      // need to define extent first then subtract cause im not projecting rn
-    
-      console.log(d3.extent(graph.nodes, function(d) {return project_x(d.x, d.y, d.z, d_project, x_0, tilt); }))
+
     
       var node_colors = ["#58c3be","#7dbf6d","#d95f02", "#cc0062","#6f08a5"];
     
       if (nLayers < 6) {
         var node_colormap = d3.scaleOrdinal(node_colors).domain(d3.extent(graph.nodes, function(d) {return d.L2}));
-        console.log(node_colormap(0))
-        console.log(node_colormap(1))
-        console.log(node_colormap(2))
-        console.log(node_colormap(3))
-        console.log(node_colormap(4))
-        console.log(node_colors)
+
       } else {
         var node_colormap = d3.scaleOrdinal(d3.schemeAccent).domain(d3.extent(graph.nodes, function(d) {return d.L2}));
       }
@@ -165,15 +157,7 @@
       var L1_colormap = d3.scaleSequential(d3.interpolateSpectral).domain(d3.extent(graph.nodes, function(d) {return d.L1}));
     
     
-      // d3.select("#color-dropdown").text("first");
-    
-      // layer_data = Object.getOwnPropertyNames(graph.nodes[0])
-      // d3.select("#color-dropdown").selectAll("option")
-      //   .data(layer_data)
-      //   .enter()
-      //     .append("option")
-      //       .attr("value", function(d) {return d})
-      //       .text(function(d) {return d});
+
     
       d3.select("select")
         .on("change",function(d){
@@ -209,7 +193,7 @@
             }
     
           }
-          // console.log(d3.scaleLinear(graph.nodes[selected]));
+
         })
     
     // functions and info for edges
@@ -280,7 +264,7 @@
         .attr("r", node_radius)
         .attr("cx", function(d) {return x_scale(project_x(d.x, d.y, d.z, d_project, x_0, tilt))})
         .attr("cy", function(d) {return y_scale(project_y(d.x, d.y, d.z, d_project, y_0, tilt))})
-        .attr("fill", function(d) {console.log(d.L2); return node_colormap(d.L2)})
+        .attr("fill", function(d) {return node_colormap(d.L2)})
         .attr("class", "nodes_circles")
         .attr("id", function(d) {return d.id})
     
@@ -304,7 +288,6 @@
         }
         d3_save_svg.save(d3.select('#svg-mx').node(), config);
 
-        // DOM.download(() => serialize(d3.select('#svg-mx')), "test", "Save as SVG")
       });
     
       d3.select('#sadj-button').on('click', function() {
@@ -330,7 +313,7 @@
         d_project = Number(selected_value_d);
         tilt = Number(selected_tilt);
 
-        console.log(x_0,y_0,d_project,tilt)
+ 
     
         // Need to recalculate the x_scale domain each time
         extent_buffer = 0.01
@@ -502,7 +485,7 @@
         // Mouseover and Mouseouts
         function mouseover() {
           d3.select(this).selectAll("circle").transition()
-            .duration(100)
+            .duration(200)
             .attr("r",node_radius*2)
 
           // Perhaps highlight any edges from this node?
@@ -510,15 +493,17 @@
           // Now highlight on the adj matrix
 
           var selected_node_id = d3.select(this).select("circle").attr("id");
-          console.log(selected_node_id)
+
 
           // Move col_highlight to appropriate spot and then show it!
           col_highlight
             .attr("x", function() {return x_scale2(selected_node_id)})
+            .attr("stroke-width", 0.2)
             .style("opacity", 1);
 
           row_highlight
             .attr("y", function() {return y_scale2(selected_node_id)})
+            .attr("stroke-width", 0.2)
             .style("opacity", 1);
 
 

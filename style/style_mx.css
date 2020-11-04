@@ -136,5 +136,5 @@
       stroke: white;
       fill: none;
       mix-blend-mode: exclusion;
-      stroke-width: 1px;
+      /* stroke-width: 1px; */
     }
