@@ -28,7 +28,7 @@ div {
 .links {
     /* opacity: 0.1; */
     stroke: pink;
-    stroke-width: 1px;
+    stroke-width: 0.7px;
 }
 
 .circles {
