@@ -265,25 +265,6 @@
 
 
 
-
-
-      // // buttons!
-      // d3.select('#mx-button').on('click', function () {
-      //   var config = {
-      //     filename: 'mx',
-      //   }
-      //   d3_save_svg.save(d3.select('#svg-mx').node(), config);
-      // });
-
-      // d3.select('#sadj-button').on('click', function () {
-      //   var config = {
-      //     filename: 'sadj',
-      //   }
-      //   d3_save_svg.save(d3.select('#svg-sadj').node(), config);
-      // });
-
-
-
       // Slider functions
       function changex0(selectedValuex, selectedValuey, selected_value_d, selected_tilt) {
         x_0 = Number(selectedValuex);
