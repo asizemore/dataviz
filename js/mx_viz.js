@@ -2,7 +2,7 @@
 
     // This file originally modified from https://bl.ocks.org/heybignick/3faf257bbbbc7743bb72310d03b86ee8
     var svgmx= d3.select("#svg-mx"),
-        widthmx = +svgmx.attr("width"),
+        widthmx = +svgmx.attr("width")-50,
         heightmx = +svgmx.attr("height");
     
     
@@ -117,7 +117,7 @@
     // Define necessary functions for nodes
     
     
-      var node_radius = 6;
+      var node_radius = 5;
     
       if (nLayers < 5) {
     
@@ -138,7 +138,7 @@
         .range([150, widthmx-150])
     
     
-      var box_buffer = 0.2;
+      var box_buffer = 0.14;
       var nodes_extent = d3.extent(graph.nodes, function(d) {return project_x(d.x, d.y, d.z, d_project, x_0, tilt); });
       var extent_buffer = 0.01 
       x_scale.domain([nodes_extent[0] - extent_buffer, nodes_extent[1] + extent_buffer]);
@@ -200,13 +200,32 @@
       function edge_line(d, x_0, y_0, d_project, tilt) {
             const source_node = graph.nodes.filter(function(n){return n.id == d.source;})[0]
             const target_node = graph.nodes.filter(function(n){return n.id == d.target;})[0]
-            const y1 = y_scale(project_y(source_node.x, source_node.y, source_node.z, d_project, y_0, tilt));
-            const x1 = x_scale(project_x(source_node.x, source_node.y, source_node.z, d_project, x_0, tilt));
-            const y2 = y_scale(project_y(target_node.x, target_node.y, target_node.z, d_project, y_0, tilt));
-            const x2 = x_scale(project_x(target_node.x, target_node.y, target_node.z, d_project, x_0, tilt));
+
+
+            if ((source_node.L1 !== target_node.L1) || (source_node.L2 === 0 && target_node.L2 === (nLayers-1))) {
+
+              // console.log(source_node.L2)
+              // console.log(target_node.L2)
+      
+              let y1 = y_scale(project_y(source_node.x, source_node.y, source_node.z, d_project, y_0, tilt));
+              let x1 = x_scale(project_x(source_node.x, source_node.y, source_node.z, d_project, x_0, tilt));
+              let y2 = y_scale(project_y(target_node.x, target_node.y, target_node.z, d_project, y_0, tilt));
+              let x2 = x_scale(project_x(target_node.x, target_node.y, target_node.z, d_project, x_0, tilt));
+      
+              return `M ${x1},${y1} L ${x2},${y2}`;
+              
+            } else {
+    
+              return ``;
+    
+            }
+            // const y1 = y_scale(project_y(source_node.x, source_node.y, source_node.z, d_project, y_0, tilt));
+            // const x1 = x_scale(project_x(source_node.x, source_node.y, source_node.z, d_project, x_0, tilt));
+            // const y2 = y_scale(project_y(target_node.x, target_node.y, target_node.z, d_project, y_0, tilt));
+            // const x2 = x_scale(project_x(target_node.x, target_node.y, target_node.z, d_project, x_0, tilt));
     
     
-            return `M ${x1},${y1} L ${x2},${y2}`;
+            // return `M ${x1},${y1} L ${x2},${y2}`;
           }
     
       function edge_class(d) {

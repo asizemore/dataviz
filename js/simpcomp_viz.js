@@ -81,7 +81,7 @@ d3.json("../data/simplicialcomplex_small.json", function(error, dict) {
             .attr("cy", function(d) {return d.y})
             .attr("r", 10)
             .attr("fill", "white")
-            .attr("stroke","navy")
+            .attr("stroke","rgb(8, 8, 16)")
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
