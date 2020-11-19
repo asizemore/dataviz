@@ -38,6 +38,7 @@
         axis_scale.domain([0, 12]);
         axis_scale.range([100, width-60]);
 
+
         // Set colormaps
         const colormap_max = 250;
         const color_scale_correct = d3.scaleSequential().domain([1,colormap_max])
@@ -74,7 +75,8 @@
 
         svg.append("text")
             .attr("class","titles")
-            .attr("transform","translate(" + 40 + "," + (height/2+20) + "),rotate(-90)")
+            .attr("transform","translate(" + 40 + "," + ((width-160)/2 + 100) + "),rotate(-90)")
+            .attr("text-anchor", "middle")
             .text("True model")
 
         svg1.append("g")
@@ -93,7 +95,7 @@
         svg1.append("text") 
             .attr("class","axis-labels")            
             .attr("transform",
-                    "translate(" + (svg_pair_s/2 + 35) + " ," + 
+                    "translate(" + ((svg_pair_s-50-80)/2 + 80) + " ," + 
                                 (svg_pair_s - margin) + ")")
             .attr("opacity", 0)
             .text("Edge density");
@@ -101,7 +103,7 @@
         svg2.append("text") 
             .attr("class","axis-labels")            
             .attr("transform",
-                    "translate(" + (svg_pair_s/2 + 35) + " ," + 
+                    "translate(" + ((svg_pair_s-50-80)/2 + 80) + " ," + 
                                 (svg_pair_s - margin) + ")")
             .attr("opacity", 0)
             .text("Edge density");
@@ -118,14 +120,15 @@
         svg1.append("text")
             .attr("class", "axis-labels")
             .attr("id","g1-title")
-            .attr("transform", "translate(" + (svg_pair_s/2 + 35) + "," + 20 + ")")
+            .attr("transform", "translate(" + ((svg_pair_s-50-80)/2 + 80) + "," + 20 + ")")
+            .attr("text-anchor", "middle")
             .attr("opacity",0)
             .text("True model: " + g_1);
 
         svg2.append("text")
             .attr("class", "axis-labels")
             .attr("id", "g2-title")
-            .attr("transform", "translate(" + (svg_pair_s/2 + 35) + "," + 20 + ")")
+            .attr("transform", "translate(" + ((svg_pair_s-50-80)/2 + 80) + "," + 20 + ")")
             .attr("opacity",0)
             .text("True model: " + g_2);
 
