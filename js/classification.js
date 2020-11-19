@@ -34,9 +34,10 @@
         axis_scale.range([100, width-60]);
 
         // Set colormaps
-        const color_scale_correct = d3.scaleSequential().domain([1,100])
+        const colormap_max = 250;
+        const color_scale_correct = d3.scaleSequential().domain([1,colormap_max])
             .interpolator(d3.interpolateBlues);
-        const color_scale_incorrect = d3.scaleSequential().domain([1,100])
+        const color_scale_incorrect = d3.scaleSequential().domain([1,colormap_max])
             .interpolator(d3.interpolateReds);
 
             
@@ -130,7 +131,7 @@
             
 
 
-        d3.csv("../data/classification.csv", function(error, data) {
+        d3.csv("../data/classification_all_101220.csv", function(error, data) {
             d3.json("../data/main_k3.json", function(error, bettis) {
             
 
@@ -165,7 +166,7 @@
                         .attr("stroke","white")
                         .attr("stroke-width", 0.5)
                         .attr("stroke-opacity", 0.5)
-                        .style("fill-opacity", function(d) {console.log(d[visible_threshold]/100); return d[visible_threshold]/100})
+                        .style("fill-opacity", function(d) {console.log(d[visible_threshold]/colormap_max); return d[visible_threshold]/colormap_max})
                         .on("mouseover", mouseover)
                         .on("mouseout", mouseout)
                         .on("click",onclick);
@@ -354,13 +355,13 @@
         
                     visible_threshold = "thresh"+rho_vals[value_edge].toString().replace(".", "");
                     visible_edge = Math.ceil(rho_vals[value_edge]*2415);
-                    console.log(visible_edge)
+
         
                     d3.selectAll(".boxes")
                         .transition()
                         .ease(d3.easeLinear)           // control the speed of the transition
                         .duration(200)
-                        .style("fill-opacity", function(d) { return d[visible_threshold]/100});
+                        .style("fill-opacity", function(d) { return d[visible_threshold]/colormap_max});
         
         
                     // Draw bettis
