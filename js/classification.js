@@ -7,7 +7,8 @@
         svg1 = d3.select("#svg-pair1")
         svg2 = d3.select("#svg-pair2")
         const svg_pair_s = +svg1.attr("width")   // Both paired svgs are squares so we only need one side.
-        console.log(svg_pair_s)
+
+
 
 
         const width = +svg.attr("width"),
@@ -140,6 +141,8 @@
 
                 // const nModels = Math.sqrt(data.length);
                 const box_s = 35;
+                console.log(data)
+                console.log(data.filter(t => t.TP === "IID_IID")[0])
 
                 let position_scale = model_names.map((e,i) => [e, axis_scale(i)])
                 console.log(position_scale)
@@ -171,7 +174,11 @@
                         .on("mouseout", mouseout)
                         .on("click",onclick);
 
-                let box_text;
+                svg.append("text")
+                        .text("")
+                        .attr("id","click-text")
+                        .attr("fill", "white")
+                        .style("text-anchor","middle");
 
                 // Write names on axes
                 const predicted_names = svg.append("g")
@@ -209,8 +216,6 @@
                             .attr("fill", "white")
                             .style("text-anchor","middle");
 
-
-                    
 
                 };
 
@@ -320,6 +325,16 @@
                 };
         
                 function onclick(d) {
+
+
+                    // Add .clicked class to the text
+                    let clicked_text = d3.select("#click-text")
+                    clicked_text.attr("class","clicked")
+
+
+                    // remove clicked class after 750ms. Your duration is 500ms,
+                    // so I'm padding it a bit although you can adjust this as needed
+                    setTimeout(function () { clicked_text.attr("class", null) }, 750);
         
 
                     // Replace and update box stroke properties
@@ -335,12 +350,18 @@
                     // Update accuracy text
                     d3.selectAll("#click-text").remove();
                     svg.append("text")
-                            .text(d[visible_threshold].split(".")[0])
-                            .attr("id","click-text")
-                            .attr("x",position_map.get(d.TP.split("_")[1]) + box_s/2)
-                            .attr("y",position_map.get(d.TP.split("_")[0]) + box_s/2 + 4)
-                            .attr("fill", "white")
-                            .style("text-anchor","middle");
+                        .attr("id","click-text")
+                        .attr("x",position_map.get(d.TP.split("_")[1]) + box_s/2)
+                        .attr("y",position_map.get(d.TP.split("_")[0]) + box_s/2 + 4)
+                        .attr("fill", "white")
+                        .style("text-anchor","middle")
+                        .text("");
+
+                    d3.select("#click-text").text(d[visible_threshold].split(".")[0]).transition().delay(750).duration(200);
+
+                    console.log(d3.select("#click-text").attr("text"))
+
+
 
                     // Redefine g_1, g_2
                     g_1 = d.TP.split("_")[0];
@@ -372,6 +393,14 @@
                 // What happens when we change the Slider Input?
                 let changed = function() {
 
+                    let changed_text = d3.select("#click-text")
+                    changed_text.attr("class","changed")
+
+
+                    // remove clicked class after 750ms. Your duration is 500ms,
+                    // so I'm padding it a bit although you can adjust this as needed
+                    setTimeout(function () { changed_text.attr("changed", null) }, 750);
+
                     // Get the slider value
                     value_edge = this.value;
         
@@ -386,18 +415,21 @@
                         .style("fill-opacity", function(d) { return d[visible_threshold]/colormap_max});
         
         
-                    // Draw bettis if a box has already been clicked
+                    // Draw bettis and update box text if a box has already been clicked
                     if (box_click_yn) {
                         
                         drawBettis(g_1,g_2,visible_edge);
 
+                        d3.select("#click-text").text(data.filter(x => x.TP === `${g_1}_${g_2}`)[0][visible_threshold].split(".")[0])
+
                     };
+
 
                 };
         
                 // Input actions
                 d3.select("#slider-range")
-                    .on("input", changed)
+                    .on("input", () => console.log("input"))
                     .on("change", changed);
 
 
