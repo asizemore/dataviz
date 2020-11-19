@@ -204,7 +204,7 @@
                     d3.select(this).transition().duration(50).attr("stroke-opacity",1).attr("stroke-width", 2);
 
                     box_text = svg.append("text")
-                            .text(d[visible_threshold])
+                            .text(d[visible_threshold].split(".")[0])
                             .attr("id","hover-text")
                             .attr("x",position_map.get(d.TP.split("_")[1]) + box_s/2)
                             .attr("y",position_map.get(d.TP.split("_")[0]) + box_s/2 + 4)
@@ -313,7 +313,7 @@
                     // Update accuracy text
                     d3.selectAll("#click-text").remove();
                     svg.append("text")
-                            .text(d[visible_threshold])
+                            .text(d[visible_threshold].split(".")[0])
                             .attr("id","click-text")
                             .attr("x",position_map.get(d.TP.split("_")[1]) + box_s/2)
                             .attr("y",position_map.get(d.TP.split("_")[0]) + box_s/2 + 4)
