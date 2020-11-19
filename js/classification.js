@@ -23,6 +23,9 @@
         const model_abbrevs = ["IID", "ast", "cp", "cosG", "dast", "disU", "dp", "geom","rg", "rl", "rmsd", "se"];
         const rho_vals = [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9];
 
+        // Set click boolean to 0 so we know when a box has been clicked.
+        box_click_yn = 0;
+
 
         // Pick one threshold, create matrix
         let visible_threshold = "thresh05";
@@ -40,8 +43,6 @@
             .interpolator(d3.interpolateBlues);
         const color_scale_incorrect = d3.scaleSequential().domain([1,colormap_max])
             .interpolator(d3.interpolateReds);
-
-            
 
         
         // Set x and y scales
@@ -359,20 +360,20 @@
 
                     // Draw bettis
                     drawBettis(g_1,g_2,visible_edge)
-                    
-        
-                    // // Make the div visible
-                    // div_pair.transition()
-                    // .duration('50')
-                    // .style("opacity", 1)
+
+                    // Set click boolean to 1
+                    box_click_yn = 1;
+
         
 
         
                 };
         
+                // What happens when we change the Slider Input?
                 let changed = function() {
+
+                    // Get the slider value
                     value_edge = this.value;
-                    // console.log(rho_vals[value_edge].toString().replace(".", ""));
         
                     visible_threshold = "thresh"+rho_vals[value_edge].toString().replace(".", "");
                     visible_edge = Math.ceil(rho_vals[value_edge]*2415);
@@ -385,8 +386,12 @@
                         .style("fill-opacity", function(d) { return d[visible_threshold]/colormap_max});
         
         
-                    // Draw bettis
-                    drawBettis(g_1,g_2,visible_edge)
+                    // Draw bettis if a box has already been clicked
+                    if (box_click_yn) {
+                        
+                        drawBettis(g_1,g_2,visible_edge);
+
+                    };
 
                 };
         
