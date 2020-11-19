@@ -14,7 +14,7 @@
         height = +svg.attr("height")
 
         // Data things
-        const nEdges = 2415;
+        const nEdges = 805;
         const betti_colors = ["#243A4C", "#406372", "#66939E", "#9BC3C6"];
 
         // UPDATE LATER
@@ -131,11 +131,11 @@
 
 
         d3.csv("../data/classification.csv", function(error, data) {
-            d3.json("../data/bettis_classification.json", function(error, bettis) {
+            d3.json("../data/main_k3.json", function(error, bettis) {
             
 
 
-                const nModels = Math.sqrt(data.length);
+                // const nModels = Math.sqrt(data.length);
                 const box_s = 35;
 
                 let position_scale = model_names.map((e,i) => [e, axis_scale(i)])
@@ -353,7 +353,7 @@
                     // console.log(rho_vals[value_edge].toString().replace(".", ""));
         
                     visible_threshold = "thresh"+rho_vals[value_edge].toString().replace(".", "");
-                    visible_edge = Math.round(rho_vals[value_edge]*2415);
+                    visible_edge = Math.ceil(rho_vals[value_edge]*2415);
                     console.log(visible_edge)
         
                     d3.selectAll(".boxes")
