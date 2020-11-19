@@ -245,7 +245,8 @@
                         .duration(1000)
                         .attr("d", function(d) {return `M ${x_scale(d/nEdges_total)} ${y_scale(0)} L ${x_scale(d/nEdges_total)} ${y_scale(max_y+buffer)}`})
                         .attr("stroke", "white")
-                        .attr("stroke-width", 2);
+                        .attr("stroke-width", 2)
+                        .attr("stroke-dasharray", "10,10");
 
 
                 }
