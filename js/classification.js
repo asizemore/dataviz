@@ -170,7 +170,7 @@
                         .attr("class","boxes")
                         .attr("width", box_s)
                         .attr("height",box_s)
-                        .attr("fill",function(d) {return (d.TP.split("_")[0] === d.TP.split("_")[1]) ? "#0F613D" : "#60133A";})
+                        .attr("fill",function(d) {return (d.TP.split("_")[0] === d.TP.split("_")[1]) ? "#1E9662" : "#BA2F74";})
                         .attr("stroke","white")
                         .attr("stroke-width", 0.5)
                         .attr("stroke-opacity", 0.5)
