@@ -399,14 +399,7 @@
                 // What happens when we change the Slider Input?
                 let changed = function() {
 
-                    let changed_text = d3.select("#click-text")
-                    changed_text.attr("class","changed")
-
-
-                    // remove clicked class after 750ms. Your duration is 500ms,
-                    // so I'm padding it a bit although you can adjust this as needed
-                    setTimeout(function () { changed_text.attr("changed", null) }, 750);
-
+                    
                     // Get the slider value
                     value_edge = this.value;
         
@@ -426,16 +419,18 @@
                         
                         drawBettis(g_1,g_2,visible_edge);
 
-                        d3.select("#click-text").text(data.filter(x => x.TP === `${g_1}_${g_2}`)[0][visible_threshold].split(".")[0])
+                        d3.select("#click-text").text(data.filter(x => x.TP === `${g_1}_${g_2}`)[0][visible_threshold].split(".")[0]);
 
                     };
 
 
                 };
+
+   
         
                 // Input actions
                 d3.select("#slider-range")
-                    .on("input", () => console.log("input"))
+                    .on("input", changed)
                     .on("change", changed);
 
 
