@@ -117,6 +117,8 @@
             .text("β_k");
 
 
+
+
         svg1.append("text")
             .attr("class", "axis-labels")
             .attr("id","g1-title")
@@ -168,7 +170,7 @@
                         .attr("class","boxes")
                         .attr("width", box_s)
                         .attr("height",box_s)
-                        .attr("fill",function(d) {return (d.TP.split("_")[0] === d.TP.split("_")[1]) ? "teal" : "pink";})
+                        .attr("fill",function(d) {return (d.TP.split("_")[0] === d.TP.split("_")[1]) ? "#0F613D" : "#60133A";})
                         .attr("stroke","white")
                         .attr("stroke-width", 0.5)
                         .attr("stroke-opacity", 0.5)
